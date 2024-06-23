@@ -1,0 +1,978 @@
+## This file contains all the build statements describing the
+# compilation DAG.
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# 
+# Which is the root file.
+# =============================================================================
+
+# =============================================================================
+# Project: myMPM
+# Configurations: Debug
+# =============================================================================
+
+#############################################
+# Minimal version of Ninja required by this file
+
+ninja_required_version = 1.5
+
+
+#############################################
+# Set configuration variable for custom commands.
+
+CONFIGURATION = Debug
+# =============================================================================
+# Include auxiliary files.
+
+
+#############################################
+# Include rules file.
+
+include CMakeFiles/rules.ninja
+
+# =============================================================================
+
+#############################################
+# Logical path to working directory; prefix for absolute paths.
+
+cmake_ninja_workdir = /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/
+# =============================================================================
+# Object build statements for EXECUTABLE target myMPM
+
+
+#############################################
+# Order-only phony target for myMPM
+
+build cmake_object_order_depends_target_myMPM: phony || cmake_object_order_depends_target_partio
+
+build CMakeFiles/myMPM.dir/src/main.cpp.o: CXX_COMPILER__myMPM_Debug /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/src/main.cpp || cmake_object_order_depends_target_myMPM
+  DEP_FILE = CMakeFiles/myMPM.dir/src/main.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.6 -fcolor-diagnostics -std=gnu++17
+  INCLUDES = -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/include -isystem /usr/local/include/eigen3
+  OBJECT_DIR = CMakeFiles/myMPM.dir
+  OBJECT_FILE_DIR = CMakeFiles/myMPM.dir/src
+
+build CMakeFiles/myMPM.dir/src/utils.cpp.o: CXX_COMPILER__myMPM_Debug /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/src/utils.cpp || cmake_object_order_depends_target_myMPM
+  DEP_FILE = CMakeFiles/myMPM.dir/src/utils.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.6 -fcolor-diagnostics -std=gnu++17
+  INCLUDES = -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/include -isystem /usr/local/include/eigen3
+  OBJECT_DIR = CMakeFiles/myMPM.dir
+  OBJECT_FILE_DIR = CMakeFiles/myMPM.dir/src
+
+build CMakeFiles/myMPM.dir/src/Simulator.cpp.o: CXX_COMPILER__myMPM_Debug /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/src/Simulator.cpp || cmake_object_order_depends_target_myMPM
+  DEP_FILE = CMakeFiles/myMPM.dir/src/Simulator.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.6 -fcolor-diagnostics -std=gnu++17
+  INCLUDES = -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/include -isystem /usr/local/include/eigen3
+  OBJECT_DIR = CMakeFiles/myMPM.dir
+  OBJECT_FILE_DIR = CMakeFiles/myMPM.dir/src
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target myMPM
+
+
+#############################################
+# Link the executable myMPM
+
+build myMPM: CXX_EXECUTABLE_LINKER__myMPM_Debug CMakeFiles/myMPM.dir/src/main.cpp.o CMakeFiles/myMPM.dir/src/utils.cpp.o CMakeFiles/myMPM.dir/src/Simulator.cpp.o | external/partio/src/lib/libpartio.dylib /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/usr/lib/libz.tbd || external/partio/src/lib/libpartio.dylib
+  FLAGS = -g -isysroot /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.6
+  LINK_LIBRARIES = -Wl,-rpath,/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio/src/lib  external/partio/src/lib/libpartio.dylib  /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/usr/lib/libz.tbd
+  OBJECT_DIR = CMakeFiles/myMPM.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = myMPM
+  TARGET_PDB = myMPM.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build edit_cache: phony CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM -B/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build rebuild_cache: phony CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build CMakeFiles/install.util: CUSTOM_COMMAND all
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build install: phony CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build CMakeFiles/install/local.util: CUSTOM_COMMAND all
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build install/local: phony CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build install/strip: phony CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for Experimental
+
+build external/partio/Experimental: phony external/partio/CMakeFiles/Experimental
+
+
+#############################################
+# Utility command for Nightly
+
+build external/partio/Nightly: phony external/partio/CMakeFiles/Nightly
+
+
+#############################################
+# Utility command for Continuous
+
+build external/partio/Continuous: phony external/partio/CMakeFiles/Continuous
+
+
+#############################################
+# Utility command for NightlyMemoryCheck
+
+build external/partio/NightlyMemoryCheck: phony external/partio/CMakeFiles/NightlyMemoryCheck
+
+
+#############################################
+# Utility command for NightlyStart
+
+build external/partio/NightlyStart: phony external/partio/CMakeFiles/NightlyStart
+
+
+#############################################
+# Utility command for NightlyUpdate
+
+build external/partio/NightlyUpdate: phony external/partio/CMakeFiles/NightlyUpdate
+
+
+#############################################
+# Utility command for NightlyConfigure
+
+build external/partio/NightlyConfigure: phony external/partio/CMakeFiles/NightlyConfigure
+
+
+#############################################
+# Utility command for NightlyBuild
+
+build external/partio/NightlyBuild: phony external/partio/CMakeFiles/NightlyBuild
+
+
+#############################################
+# Utility command for NightlyTest
+
+build external/partio/NightlyTest: phony external/partio/CMakeFiles/NightlyTest
+
+
+#############################################
+# Utility command for NightlyCoverage
+
+build external/partio/NightlyCoverage: phony external/partio/CMakeFiles/NightlyCoverage
+
+
+#############################################
+# Utility command for NightlyMemCheck
+
+build external/partio/NightlyMemCheck: phony external/partio/CMakeFiles/NightlyMemCheck
+
+
+#############################################
+# Utility command for NightlySubmit
+
+build external/partio/NightlySubmit: phony external/partio/CMakeFiles/NightlySubmit
+
+
+#############################################
+# Utility command for ExperimentalStart
+
+build external/partio/ExperimentalStart: phony external/partio/CMakeFiles/ExperimentalStart
+
+
+#############################################
+# Utility command for ExperimentalUpdate
+
+build external/partio/ExperimentalUpdate: phony external/partio/CMakeFiles/ExperimentalUpdate
+
+
+#############################################
+# Utility command for ExperimentalConfigure
+
+build external/partio/ExperimentalConfigure: phony external/partio/CMakeFiles/ExperimentalConfigure
+
+
+#############################################
+# Utility command for ExperimentalBuild
+
+build external/partio/ExperimentalBuild: phony external/partio/CMakeFiles/ExperimentalBuild
+
+
+#############################################
+# Utility command for ExperimentalTest
+
+build external/partio/ExperimentalTest: phony external/partio/CMakeFiles/ExperimentalTest
+
+
+#############################################
+# Utility command for ExperimentalCoverage
+
+build external/partio/ExperimentalCoverage: phony external/partio/CMakeFiles/ExperimentalCoverage
+
+
+#############################################
+# Utility command for ExperimentalMemCheck
+
+build external/partio/ExperimentalMemCheck: phony external/partio/CMakeFiles/ExperimentalMemCheck
+
+
+#############################################
+# Utility command for ExperimentalSubmit
+
+build external/partio/ExperimentalSubmit: phony external/partio/CMakeFiles/ExperimentalSubmit
+
+
+#############################################
+# Utility command for ContinuousStart
+
+build external/partio/ContinuousStart: phony external/partio/CMakeFiles/ContinuousStart
+
+
+#############################################
+# Utility command for ContinuousUpdate
+
+build external/partio/ContinuousUpdate: phony external/partio/CMakeFiles/ContinuousUpdate
+
+
+#############################################
+# Utility command for ContinuousConfigure
+
+build external/partio/ContinuousConfigure: phony external/partio/CMakeFiles/ContinuousConfigure
+
+
+#############################################
+# Utility command for ContinuousBuild
+
+build external/partio/ContinuousBuild: phony external/partio/CMakeFiles/ContinuousBuild
+
+
+#############################################
+# Utility command for ContinuousTest
+
+build external/partio/ContinuousTest: phony external/partio/CMakeFiles/ContinuousTest
+
+
+#############################################
+# Utility command for ContinuousCoverage
+
+build external/partio/ContinuousCoverage: phony external/partio/CMakeFiles/ContinuousCoverage
+
+
+#############################################
+# Utility command for ContinuousMemCheck
+
+build external/partio/ContinuousMemCheck: phony external/partio/CMakeFiles/ContinuousMemCheck
+
+
+#############################################
+# Utility command for ContinuousSubmit
+
+build external/partio/ContinuousSubmit: phony external/partio/CMakeFiles/ContinuousSubmit
+
+
+#############################################
+# Utility command for edit_cache
+
+build external/partio/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build external/partio/edit_cache: phony external/partio/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build external/partio/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM -B/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build external/partio/rebuild_cache: phony external/partio/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build external/partio/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build external/partio/CMakeFiles/install.util: CUSTOM_COMMAND external/partio/all
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build external/partio/install: phony external/partio/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build external/partio/CMakeFiles/install/local.util: CUSTOM_COMMAND external/partio/all
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build external/partio/install/local: phony external/partio/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build external/partio/CMakeFiles/install/strip.util: CUSTOM_COMMAND external/partio/all
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build external/partio/install/strip: phony external/partio/CMakeFiles/install/strip.util
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/Experimental
+
+build external/partio/CMakeFiles/Experimental | ${cmake_ninja_workdir}external/partio/CMakeFiles/Experimental: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D Experimental
+  pool = console
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/Nightly
+
+build external/partio/CMakeFiles/Nightly | ${cmake_ninja_workdir}external/partio/CMakeFiles/Nightly: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D Nightly
+  pool = console
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/Continuous
+
+build external/partio/CMakeFiles/Continuous | ${cmake_ninja_workdir}external/partio/CMakeFiles/Continuous: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D Continuous
+  pool = console
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/NightlyMemoryCheck
+
+build external/partio/CMakeFiles/NightlyMemoryCheck | ${cmake_ninja_workdir}external/partio/CMakeFiles/NightlyMemoryCheck: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D NightlyMemoryCheck
+  pool = console
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/NightlyStart
+
+build external/partio/CMakeFiles/NightlyStart | ${cmake_ninja_workdir}external/partio/CMakeFiles/NightlyStart: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D NightlyStart
+  pool = console
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/NightlyUpdate
+
+build external/partio/CMakeFiles/NightlyUpdate | ${cmake_ninja_workdir}external/partio/CMakeFiles/NightlyUpdate: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D NightlyUpdate
+  pool = console
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/NightlyConfigure
+
+build external/partio/CMakeFiles/NightlyConfigure | ${cmake_ninja_workdir}external/partio/CMakeFiles/NightlyConfigure: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D NightlyConfigure
+  pool = console
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/NightlyBuild
+
+build external/partio/CMakeFiles/NightlyBuild | ${cmake_ninja_workdir}external/partio/CMakeFiles/NightlyBuild: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D NightlyBuild
+  pool = console
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/NightlyTest
+
+build external/partio/CMakeFiles/NightlyTest | ${cmake_ninja_workdir}external/partio/CMakeFiles/NightlyTest: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D NightlyTest
+  pool = console
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/NightlyCoverage
+
+build external/partio/CMakeFiles/NightlyCoverage | ${cmake_ninja_workdir}external/partio/CMakeFiles/NightlyCoverage: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D NightlyCoverage
+  pool = console
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/NightlyMemCheck
+
+build external/partio/CMakeFiles/NightlyMemCheck | ${cmake_ninja_workdir}external/partio/CMakeFiles/NightlyMemCheck: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D NightlyMemCheck
+  pool = console
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/NightlySubmit
+
+build external/partio/CMakeFiles/NightlySubmit | ${cmake_ninja_workdir}external/partio/CMakeFiles/NightlySubmit: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D NightlySubmit
+  pool = console
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/ExperimentalStart
+
+build external/partio/CMakeFiles/ExperimentalStart | ${cmake_ninja_workdir}external/partio/CMakeFiles/ExperimentalStart: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D ExperimentalStart
+  pool = console
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/ExperimentalUpdate
+
+build external/partio/CMakeFiles/ExperimentalUpdate | ${cmake_ninja_workdir}external/partio/CMakeFiles/ExperimentalUpdate: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D ExperimentalUpdate
+  pool = console
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/ExperimentalConfigure
+
+build external/partio/CMakeFiles/ExperimentalConfigure | ${cmake_ninja_workdir}external/partio/CMakeFiles/ExperimentalConfigure: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D ExperimentalConfigure
+  pool = console
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/ExperimentalBuild
+
+build external/partio/CMakeFiles/ExperimentalBuild | ${cmake_ninja_workdir}external/partio/CMakeFiles/ExperimentalBuild: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D ExperimentalBuild
+  pool = console
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/ExperimentalTest
+
+build external/partio/CMakeFiles/ExperimentalTest | ${cmake_ninja_workdir}external/partio/CMakeFiles/ExperimentalTest: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D ExperimentalTest
+  pool = console
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/ExperimentalCoverage
+
+build external/partio/CMakeFiles/ExperimentalCoverage | ${cmake_ninja_workdir}external/partio/CMakeFiles/ExperimentalCoverage: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D ExperimentalCoverage
+  pool = console
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/ExperimentalMemCheck
+
+build external/partio/CMakeFiles/ExperimentalMemCheck | ${cmake_ninja_workdir}external/partio/CMakeFiles/ExperimentalMemCheck: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D ExperimentalMemCheck
+  pool = console
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/ExperimentalSubmit
+
+build external/partio/CMakeFiles/ExperimentalSubmit | ${cmake_ninja_workdir}external/partio/CMakeFiles/ExperimentalSubmit: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D ExperimentalSubmit
+  pool = console
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/ContinuousStart
+
+build external/partio/CMakeFiles/ContinuousStart | ${cmake_ninja_workdir}external/partio/CMakeFiles/ContinuousStart: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D ContinuousStart
+  pool = console
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/ContinuousUpdate
+
+build external/partio/CMakeFiles/ContinuousUpdate | ${cmake_ninja_workdir}external/partio/CMakeFiles/ContinuousUpdate: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D ContinuousUpdate
+  pool = console
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/ContinuousConfigure
+
+build external/partio/CMakeFiles/ContinuousConfigure | ${cmake_ninja_workdir}external/partio/CMakeFiles/ContinuousConfigure: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D ContinuousConfigure
+  pool = console
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/ContinuousBuild
+
+build external/partio/CMakeFiles/ContinuousBuild | ${cmake_ninja_workdir}external/partio/CMakeFiles/ContinuousBuild: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D ContinuousBuild
+  pool = console
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/ContinuousTest
+
+build external/partio/CMakeFiles/ContinuousTest | ${cmake_ninja_workdir}external/partio/CMakeFiles/ContinuousTest: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D ContinuousTest
+  pool = console
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/ContinuousCoverage
+
+build external/partio/CMakeFiles/ContinuousCoverage | ${cmake_ninja_workdir}external/partio/CMakeFiles/ContinuousCoverage: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D ContinuousCoverage
+  pool = console
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/ContinuousMemCheck
+
+build external/partio/CMakeFiles/ContinuousMemCheck | ${cmake_ninja_workdir}external/partio/CMakeFiles/ContinuousMemCheck: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D ContinuousMemCheck
+  pool = console
+
+
+#############################################
+# Custom command for external/partio/CMakeFiles/ContinuousSubmit
+
+build external/partio/CMakeFiles/ContinuousSubmit | ${cmake_ninja_workdir}external/partio/CMakeFiles/ContinuousSubmit: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio && /Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest -D ContinuousSubmit
+  pool = console
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for SHARED_LIBRARY target partio
+
+
+#############################################
+# Order-only phony target for partio
+
+build cmake_object_order_depends_target_partio: phony || external/partio/src/lib/CMakeFiles/partio.dir
+
+build external/partio/src/lib/CMakeFiles/partio.dir/io/BGEO.cpp.o: CXX_COMPILER__partio_Debug /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib/io/BGEO.cpp || cmake_object_order_depends_target_partio
+  DEFINES = -DPARTIO_USE_ZLIB -Dpartio_EXPORTS
+  DEP_FILE = external/partio/src/lib/CMakeFiles/partio.dir/io/BGEO.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.6 -fPIC -fcolor-diagnostics   -w -Wextra -Wno-unused-parameter -std=c++11
+  INCLUDES = -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/include
+  OBJECT_DIR = external/partio/src/lib/CMakeFiles/partio.dir
+  OBJECT_FILE_DIR = external/partio/src/lib/CMakeFiles/partio.dir/io
+
+build external/partio/src/lib/CMakeFiles/partio.dir/io/BIN.cpp.o: CXX_COMPILER__partio_Debug /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib/io/BIN.cpp || cmake_object_order_depends_target_partio
+  DEFINES = -DPARTIO_USE_ZLIB -Dpartio_EXPORTS
+  DEP_FILE = external/partio/src/lib/CMakeFiles/partio.dir/io/BIN.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.6 -fPIC -fcolor-diagnostics   -w -Wextra -Wno-unused-parameter -std=c++11
+  INCLUDES = -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/include
+  OBJECT_DIR = external/partio/src/lib/CMakeFiles/partio.dir
+  OBJECT_FILE_DIR = external/partio/src/lib/CMakeFiles/partio.dir/io
+
+build external/partio/src/lib/CMakeFiles/partio.dir/io/GEO.cpp.o: CXX_COMPILER__partio_Debug /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib/io/GEO.cpp || cmake_object_order_depends_target_partio
+  DEFINES = -DPARTIO_USE_ZLIB -Dpartio_EXPORTS
+  DEP_FILE = external/partio/src/lib/CMakeFiles/partio.dir/io/GEO.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.6 -fPIC -fcolor-diagnostics   -w -Wextra -Wno-unused-parameter -std=c++11
+  INCLUDES = -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/include
+  OBJECT_DIR = external/partio/src/lib/CMakeFiles/partio.dir
+  OBJECT_FILE_DIR = external/partio/src/lib/CMakeFiles/partio.dir/io
+
+build external/partio/src/lib/CMakeFiles/partio.dir/io/MC.cpp.o: CXX_COMPILER__partio_Debug /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib/io/MC.cpp || cmake_object_order_depends_target_partio
+  DEFINES = -DPARTIO_USE_ZLIB -Dpartio_EXPORTS
+  DEP_FILE = external/partio/src/lib/CMakeFiles/partio.dir/io/MC.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.6 -fPIC -fcolor-diagnostics   -w -Wextra -Wno-unused-parameter -std=c++11
+  INCLUDES = -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/include
+  OBJECT_DIR = external/partio/src/lib/CMakeFiles/partio.dir
+  OBJECT_FILE_DIR = external/partio/src/lib/CMakeFiles/partio.dir/io
+
+build external/partio/src/lib/CMakeFiles/partio.dir/io/PDA.cpp.o: CXX_COMPILER__partio_Debug /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib/io/PDA.cpp || cmake_object_order_depends_target_partio
+  DEFINES = -DPARTIO_USE_ZLIB -Dpartio_EXPORTS
+  DEP_FILE = external/partio/src/lib/CMakeFiles/partio.dir/io/PDA.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.6 -fPIC -fcolor-diagnostics   -w -Wextra -Wno-unused-parameter -std=c++11
+  INCLUDES = -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/include
+  OBJECT_DIR = external/partio/src/lib/CMakeFiles/partio.dir
+  OBJECT_FILE_DIR = external/partio/src/lib/CMakeFiles/partio.dir/io
+
+build external/partio/src/lib/CMakeFiles/partio.dir/io/PDB.cpp.o: CXX_COMPILER__partio_Debug /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib/io/PDB.cpp || cmake_object_order_depends_target_partio
+  DEFINES = -DPARTIO_USE_ZLIB -Dpartio_EXPORTS
+  DEP_FILE = external/partio/src/lib/CMakeFiles/partio.dir/io/PDB.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.6 -fPIC -fcolor-diagnostics   -w -Wextra -Wno-unused-parameter -std=c++11
+  INCLUDES = -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/include
+  OBJECT_DIR = external/partio/src/lib/CMakeFiles/partio.dir
+  OBJECT_FILE_DIR = external/partio/src/lib/CMakeFiles/partio.dir/io
+
+build external/partio/src/lib/CMakeFiles/partio.dir/io/PDC.cpp.o: CXX_COMPILER__partio_Debug /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib/io/PDC.cpp || cmake_object_order_depends_target_partio
+  DEFINES = -DPARTIO_USE_ZLIB -Dpartio_EXPORTS
+  DEP_FILE = external/partio/src/lib/CMakeFiles/partio.dir/io/PDC.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.6 -fPIC -fcolor-diagnostics   -w -Wextra -Wno-unused-parameter -std=c++11
+  INCLUDES = -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/include
+  OBJECT_DIR = external/partio/src/lib/CMakeFiles/partio.dir
+  OBJECT_FILE_DIR = external/partio/src/lib/CMakeFiles/partio.dir/io
+
+build external/partio/src/lib/CMakeFiles/partio.dir/io/PRT.cpp.o: CXX_COMPILER__partio_Debug /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib/io/PRT.cpp || cmake_object_order_depends_target_partio
+  DEFINES = -DPARTIO_USE_ZLIB -Dpartio_EXPORTS
+  DEP_FILE = external/partio/src/lib/CMakeFiles/partio.dir/io/PRT.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.6 -fPIC -fcolor-diagnostics   -w -Wextra -Wno-unused-parameter -std=c++11
+  INCLUDES = -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/include
+  OBJECT_DIR = external/partio/src/lib/CMakeFiles/partio.dir
+  OBJECT_FILE_DIR = external/partio/src/lib/CMakeFiles/partio.dir/io
+
+build external/partio/src/lib/CMakeFiles/partio.dir/io/PTC.cpp.o: CXX_COMPILER__partio_Debug /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib/io/PTC.cpp || cmake_object_order_depends_target_partio
+  DEFINES = -DPARTIO_USE_ZLIB -Dpartio_EXPORTS
+  DEP_FILE = external/partio/src/lib/CMakeFiles/partio.dir/io/PTC.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.6 -fPIC -fcolor-diagnostics   -w -Wextra -Wno-unused-parameter -std=c++11
+  INCLUDES = -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/include
+  OBJECT_DIR = external/partio/src/lib/CMakeFiles/partio.dir
+  OBJECT_FILE_DIR = external/partio/src/lib/CMakeFiles/partio.dir/io
+
+build external/partio/src/lib/CMakeFiles/partio.dir/io/PTS.cpp.o: CXX_COMPILER__partio_Debug /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib/io/PTS.cpp || cmake_object_order_depends_target_partio
+  DEFINES = -DPARTIO_USE_ZLIB -Dpartio_EXPORTS
+  DEP_FILE = external/partio/src/lib/CMakeFiles/partio.dir/io/PTS.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.6 -fPIC -fcolor-diagnostics   -w -Wextra -Wno-unused-parameter -std=c++11
+  INCLUDES = -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/include
+  OBJECT_DIR = external/partio/src/lib/CMakeFiles/partio.dir
+  OBJECT_FILE_DIR = external/partio/src/lib/CMakeFiles/partio.dir/io
+
+build external/partio/src/lib/CMakeFiles/partio.dir/io/ParticleIO.cpp.o: CXX_COMPILER__partio_Debug /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib/io/ParticleIO.cpp || cmake_object_order_depends_target_partio
+  DEFINES = -DPARTIO_USE_ZLIB -Dpartio_EXPORTS
+  DEP_FILE = external/partio/src/lib/CMakeFiles/partio.dir/io/ParticleIO.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.6 -fPIC -fcolor-diagnostics   -w -Wextra -Wno-unused-parameter -std=c++11
+  INCLUDES = -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/include
+  OBJECT_DIR = external/partio/src/lib/CMakeFiles/partio.dir
+  OBJECT_FILE_DIR = external/partio/src/lib/CMakeFiles/partio.dir/io
+
+build external/partio/src/lib/CMakeFiles/partio.dir/io/RIB.cpp.o: CXX_COMPILER__partio_Debug /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib/io/RIB.cpp || cmake_object_order_depends_target_partio
+  DEFINES = -DPARTIO_USE_ZLIB -Dpartio_EXPORTS
+  DEP_FILE = external/partio/src/lib/CMakeFiles/partio.dir/io/RIB.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.6 -fPIC -fcolor-diagnostics   -w -Wextra -Wno-unused-parameter -std=c++11
+  INCLUDES = -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/include
+  OBJECT_DIR = external/partio/src/lib/CMakeFiles/partio.dir
+  OBJECT_FILE_DIR = external/partio/src/lib/CMakeFiles/partio.dir/io
+
+build external/partio/src/lib/CMakeFiles/partio.dir/io/ZIP.cpp.o: CXX_COMPILER__partio_Debug /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib/io/ZIP.cpp || cmake_object_order_depends_target_partio
+  DEFINES = -DPARTIO_USE_ZLIB -Dpartio_EXPORTS
+  DEP_FILE = external/partio/src/lib/CMakeFiles/partio.dir/io/ZIP.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.6 -fPIC -fcolor-diagnostics   -w -Wextra -Wno-unused-parameter -std=c++11
+  INCLUDES = -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/include
+  OBJECT_DIR = external/partio/src/lib/CMakeFiles/partio.dir
+  OBJECT_FILE_DIR = external/partio/src/lib/CMakeFiles/partio.dir/io
+
+build external/partio/src/lib/CMakeFiles/partio.dir/core/Particle.cpp.o: CXX_COMPILER__partio_Debug /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib/core/Particle.cpp || cmake_object_order_depends_target_partio
+  DEFINES = -DPARTIO_USE_ZLIB -Dpartio_EXPORTS
+  DEP_FILE = external/partio/src/lib/CMakeFiles/partio.dir/core/Particle.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.6 -fPIC -fcolor-diagnostics   -w -Wextra -Wno-unused-parameter -std=c++11
+  INCLUDES = -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/include
+  OBJECT_DIR = external/partio/src/lib/CMakeFiles/partio.dir
+  OBJECT_FILE_DIR = external/partio/src/lib/CMakeFiles/partio.dir/core
+
+build external/partio/src/lib/CMakeFiles/partio.dir/core/ParticleCaching.cpp.o: CXX_COMPILER__partio_Debug /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib/core/ParticleCaching.cpp || cmake_object_order_depends_target_partio
+  DEFINES = -DPARTIO_USE_ZLIB -Dpartio_EXPORTS
+  DEP_FILE = external/partio/src/lib/CMakeFiles/partio.dir/core/ParticleCaching.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.6 -fPIC -fcolor-diagnostics   -w -Wextra -Wno-unused-parameter -std=c++11
+  INCLUDES = -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/include
+  OBJECT_DIR = external/partio/src/lib/CMakeFiles/partio.dir
+  OBJECT_FILE_DIR = external/partio/src/lib/CMakeFiles/partio.dir/core
+
+build external/partio/src/lib/CMakeFiles/partio.dir/core/ParticleHeaders.cpp.o: CXX_COMPILER__partio_Debug /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib/core/ParticleHeaders.cpp || cmake_object_order_depends_target_partio
+  DEFINES = -DPARTIO_USE_ZLIB -Dpartio_EXPORTS
+  DEP_FILE = external/partio/src/lib/CMakeFiles/partio.dir/core/ParticleHeaders.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.6 -fPIC -fcolor-diagnostics   -w -Wextra -Wno-unused-parameter -std=c++11
+  INCLUDES = -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/include
+  OBJECT_DIR = external/partio/src/lib/CMakeFiles/partio.dir
+  OBJECT_FILE_DIR = external/partio/src/lib/CMakeFiles/partio.dir/core
+
+build external/partio/src/lib/CMakeFiles/partio.dir/core/ParticleSimple.cpp.o: CXX_COMPILER__partio_Debug /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib/core/ParticleSimple.cpp || cmake_object_order_depends_target_partio
+  DEFINES = -DPARTIO_USE_ZLIB -Dpartio_EXPORTS
+  DEP_FILE = external/partio/src/lib/CMakeFiles/partio.dir/core/ParticleSimple.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.6 -fPIC -fcolor-diagnostics   -w -Wextra -Wno-unused-parameter -std=c++11
+  INCLUDES = -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/include
+  OBJECT_DIR = external/partio/src/lib/CMakeFiles/partio.dir
+  OBJECT_FILE_DIR = external/partio/src/lib/CMakeFiles/partio.dir/core
+
+build external/partio/src/lib/CMakeFiles/partio.dir/core/ParticleSimpleInterleave.cpp.o: CXX_COMPILER__partio_Debug /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib/core/ParticleSimpleInterleave.cpp || cmake_object_order_depends_target_partio
+  DEFINES = -DPARTIO_USE_ZLIB -Dpartio_EXPORTS
+  DEP_FILE = external/partio/src/lib/CMakeFiles/partio.dir/core/ParticleSimpleInterleave.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.6 -fPIC -fcolor-diagnostics   -w -Wextra -Wno-unused-parameter -std=c++11
+  INCLUDES = -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib -I/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/include
+  OBJECT_DIR = external/partio/src/lib/CMakeFiles/partio.dir
+  OBJECT_FILE_DIR = external/partio/src/lib/CMakeFiles/partio.dir/core
+
+
+# =============================================================================
+# Link build statements for SHARED_LIBRARY target partio
+
+
+#############################################
+# Link the shared library external/partio/src/lib/libpartio.dylib
+
+build external/partio/src/lib/libpartio.dylib: CXX_SHARED_LIBRARY_LINKER__partio_Debug external/partio/src/lib/CMakeFiles/partio.dir/io/BGEO.cpp.o external/partio/src/lib/CMakeFiles/partio.dir/io/BIN.cpp.o external/partio/src/lib/CMakeFiles/partio.dir/io/GEO.cpp.o external/partio/src/lib/CMakeFiles/partio.dir/io/MC.cpp.o external/partio/src/lib/CMakeFiles/partio.dir/io/PDA.cpp.o external/partio/src/lib/CMakeFiles/partio.dir/io/PDB.cpp.o external/partio/src/lib/CMakeFiles/partio.dir/io/PDC.cpp.o external/partio/src/lib/CMakeFiles/partio.dir/io/PRT.cpp.o external/partio/src/lib/CMakeFiles/partio.dir/io/PTC.cpp.o external/partio/src/lib/CMakeFiles/partio.dir/io/PTS.cpp.o external/partio/src/lib/CMakeFiles/partio.dir/io/ParticleIO.cpp.o external/partio/src/lib/CMakeFiles/partio.dir/io/RIB.cpp.o external/partio/src/lib/CMakeFiles/partio.dir/io/ZIP.cpp.o external/partio/src/lib/CMakeFiles/partio.dir/core/Particle.cpp.o external/partio/src/lib/CMakeFiles/partio.dir/core/ParticleCaching.cpp.o external/partio/src/lib/CMakeFiles/partio.dir/core/ParticleHeaders.cpp.o external/partio/src/lib/CMakeFiles/partio.dir/core/ParticleSimple.cpp.o external/partio/src/lib/CMakeFiles/partio.dir/core/ParticleSimpleInterleave.cpp.o | /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/usr/lib/libz.tbd
+  ARCH_FLAGS = -isysroot /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.6
+  INSTALLNAME_DIR = @rpath/
+  LANGUAGE_COMPILE_FLAGS = -g
+  LINK_FLAGS = -undefined dynamic_lookup
+  LINK_LIBRARIES = /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/usr/lib/libz.tbd
+  OBJECT_DIR = external/partio/src/lib/CMakeFiles/partio.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  SONAME = libpartio.dylib
+  SONAME_FLAG = -install_name
+  TARGET_FILE = external/partio/src/lib/libpartio.dylib
+  TARGET_PDB = partio.dylib.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build external/partio/src/lib/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio/src/lib && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build external/partio/src/lib/edit_cache: phony external/partio/src/lib/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build external/partio/src/lib/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio/src/lib && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM -B/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build external/partio/src/lib/rebuild_cache: phony external/partio/src/lib/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build external/partio/src/lib/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build external/partio/src/lib/CMakeFiles/install.util: CUSTOM_COMMAND external/partio/src/lib/all
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio/src/lib && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build external/partio/src/lib/install: phony external/partio/src/lib/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build external/partio/src/lib/CMakeFiles/install/local.util: CUSTOM_COMMAND external/partio/src/lib/all
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio/src/lib && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build external/partio/src/lib/install/local: phony external/partio/src/lib/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build external/partio/src/lib/CMakeFiles/install/strip.util: CUSTOM_COMMAND external/partio/src/lib/all
+  COMMAND = cd /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio/src/lib && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build external/partio/src/lib/install/strip: phony external/partio/src/lib/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Target aliases.
+
+build Continuous: phony external/partio/Continuous
+
+build ContinuousBuild: phony external/partio/ContinuousBuild
+
+build ContinuousConfigure: phony external/partio/ContinuousConfigure
+
+build ContinuousCoverage: phony external/partio/ContinuousCoverage
+
+build ContinuousMemCheck: phony external/partio/ContinuousMemCheck
+
+build ContinuousStart: phony external/partio/ContinuousStart
+
+build ContinuousSubmit: phony external/partio/ContinuousSubmit
+
+build ContinuousTest: phony external/partio/ContinuousTest
+
+build ContinuousUpdate: phony external/partio/ContinuousUpdate
+
+build Experimental: phony external/partio/Experimental
+
+build ExperimentalBuild: phony external/partio/ExperimentalBuild
+
+build ExperimentalConfigure: phony external/partio/ExperimentalConfigure
+
+build ExperimentalCoverage: phony external/partio/ExperimentalCoverage
+
+build ExperimentalMemCheck: phony external/partio/ExperimentalMemCheck
+
+build ExperimentalStart: phony external/partio/ExperimentalStart
+
+build ExperimentalSubmit: phony external/partio/ExperimentalSubmit
+
+build ExperimentalTest: phony external/partio/ExperimentalTest
+
+build ExperimentalUpdate: phony external/partio/ExperimentalUpdate
+
+build Nightly: phony external/partio/Nightly
+
+build NightlyBuild: phony external/partio/NightlyBuild
+
+build NightlyConfigure: phony external/partio/NightlyConfigure
+
+build NightlyCoverage: phony external/partio/NightlyCoverage
+
+build NightlyMemCheck: phony external/partio/NightlyMemCheck
+
+build NightlyMemoryCheck: phony external/partio/NightlyMemoryCheck
+
+build NightlyStart: phony external/partio/NightlyStart
+
+build NightlySubmit: phony external/partio/NightlySubmit
+
+build NightlyTest: phony external/partio/NightlyTest
+
+build NightlyUpdate: phony external/partio/NightlyUpdate
+
+build libpartio.dylib: phony external/partio/src/lib/libpartio.dylib
+
+build partio: phony external/partio/src/lib/libpartio.dylib
+
+# =============================================================================
+# Folder targets.
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug
+
+build all: phony myMPM external/partio/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio
+
+build external/partio/all: phony external/partio/src/lib/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio/src/lib
+
+build external/partio/src/lib/all: phony external/partio/src/lib/libpartio.dylib
+
+# =============================================================================
+# Built-in targets
+
+
+#############################################
+# Re-run CMake if any of its inputs changed.
+
+build build.ninja: RERUN_CMAKE | /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CTest.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CTestTargets.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CTestUseLaunchers.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/DartConfiguration.tcl.in /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/FindZLIB.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/GNUInstallDirs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/UnixPaths.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/SelectLibraryConfigurations.cmake /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/CMakeLists.txt /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/CMakeLists.txt /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib/CMakeLists.txt /usr/local/share/eigen3/cmake/Eigen3Config.cmake /usr/local/share/eigen3/cmake/Eigen3ConfigVersion.cmake /usr/local/share/eigen3/cmake/Eigen3Targets.cmake CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake
+  pool = console
+
+
+#############################################
+# A missing CMake input file is not an error.
+
+build /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CTest.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CTestTargets.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CTestUseLaunchers.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/DartConfiguration.tcl.in /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/FindZLIB.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/GNUInstallDirs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/UnixPaths.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/SelectLibraryConfigurations.cmake /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/CMakeLists.txt /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/CMakeLists.txt /Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib/CMakeLists.txt /usr/local/share/eigen3/cmake/Eigen3Config.cmake /usr/local/share/eigen3/cmake/Eigen3ConfigVersion.cmake /usr/local/share/eigen3/cmake/Eigen3Targets.cmake CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake: phony
+
+
+#############################################
+# Clean all the built files.
+
+build clean: CLEAN
+
+
+#############################################
+# Print all primary targets available.
+
+build help: HELP
+
+
+#############################################
+# Make the all target the default.
+
+default all
