@@ -21,6 +21,18 @@ struct SimulatorConfiguration
     int W, H, L, grid_size;
 };
 
+struct Grid
+{
+    Vector3f velocity;
+    float mass;
+};
+
+struct Particle
+{
+    float mass;
+    Vector3f velocity;
+};
+
 class Water
 {
 public:

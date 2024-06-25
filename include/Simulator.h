@@ -7,7 +7,10 @@
 class Simulator
 {
 public:
-    SimulatorConfiguration sim_config;
+    SimulatorConfiguration simulator_configuration;
+    Grid *grid;
+    Particle *particles;
+    vector<int> active_nodes;
     int particles_size = 0;
 
     std::vector<Vector3f> positions;
