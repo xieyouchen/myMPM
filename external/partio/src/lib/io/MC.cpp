@@ -66,7 +66,7 @@ std::string GetString(std::istream& input, unsigned int size){
 typedef struct{
     std::string name;
     std::string type;
-    unsigned int numParticles;
+    unsigned int nuParticles;
     unsigned int blocksize;
 } Attribute_Header;
 
@@ -87,7 +87,7 @@ bool ReadAttrHeader(std::istream& input, Attribute_Header& attribute){
     int dummy;
     read<BIGEND>(input, dummy); // 4
 
-    read<BIGEND>(input, attribute.numParticles);
+    read<BIGEND>(input, attribute.nuParticles);
 
     attribute.type = GetString(input, 4);
 
@@ -161,14 +161,14 @@ ParticlesDataMutable* readMC(const char* filename, const bool headersOnly,std::o
         simple=create();
     }
 
-    int numParticles = 0;
+    int nuParticles = 0;
     input->read(tag, 4); // MYCH
     while(((int)input->tellg()-HEADER_SIZE) < blockSize){
         Attribute_Header attrHeader;
         ReadAttrHeader(*input, attrHeader);
 
         if(attrHeader.name == std::string("id")){
-            numParticles = attrHeader.numParticles;
+            nuParticles = attrHeader.nuParticles;
         }
 
         if(attrHeader.blocksize/sizeof(double) == 1){ // for who ?
@@ -201,7 +201,7 @@ ParticlesDataMutable* readMC(const char* filename, const bool headersOnly,std::o
             if(errorStream) *errorStream << "Partio: Attribute '" << attrHeader.name << " " << attrHeader.type << "' cannot map type" << std::endl;
         }
     }
-    simple->addParticles(numParticles);
+    simple->addParticles(nuParticles);
 
     // If all we care about is headers, then return.--
     if(headersOnly){
@@ -233,7 +233,7 @@ ParticlesDataMutable* readMC(const char* filename, const bool headersOnly,std::o
         if (attrHeader.type == std::string("DBLA")){
 			if  (attrHeader.name == "id")
 			{
-				for (int i = 0; i < simple->numParticles(); i++)
+				for (int i = 0; i < simple->nuParticles(); i++)
 				{
                 double tmp;
                 read<BIGEND>(*input, tmp);
@@ -242,7 +242,7 @@ ParticlesDataMutable* readMC(const char* filename, const bool headersOnly,std::o
 				}
 			}
 			else{
-				for (int i = 0; i < simple->numParticles(); i++){
+				for (int i = 0; i < simple->nuParticles(); i++){
 					double tmp;
 					read<BIGEND>(*input, tmp);
 					float* data = simple->dataWrite<float>(attrHandle, i);
@@ -322,7 +322,7 @@ bool dgMc::open(string filePath){
         }
 
         if(attrname == string("id")){
-            _numParticles = arrayLength;
+            _nuParticles = arrayLength;
         }
     }
     return true;
@@ -338,7 +338,7 @@ int main(){
     for(int i = 0; i < 1; i++){
         dgMc mc;
         mc.open(string("/dept/rdworks/jinkuen/testfile/mc/real_nParticleShape1Frame47.mc"));
-        cout << mc.numParticles() << " ";
+        cout << mc.nuParticles() << " ";
         for(int i = 0; i < mc.count(); i++){
             cout << mc.list(dgParticle::All)[i] << " ";
         }

@@ -136,10 +136,10 @@ clone(const ParticlesData& other, bool particles, const std::map<std::string, st
     // Particle data
     Partio::ParticleAttribute srcAttr, dstAttr;
     const int numAttributes = other.numAttributes();
-    const size_t numParticles = other.numParticles();
+    const size_t nuParticles = other.nuParticles();
     std::vector<Partio::ParticleAttribute> dstAttrs;
 
-    p->addParticles(numParticles);
+    p->addParticles(nuParticles);
 
     // We can't assume that the particle backend stores data contiguously, so
     // we copy one particle at a time.  A bulk memcpy would be faster.
@@ -155,7 +155,7 @@ clone(const ParticlesData& other, bool particles, const std::map<std::string, st
         size_t size = Partio::TypeSize(srcAttr.type) * srcAttr.count;
         dstAttr = p->addAttribute(getMappedName(srcAttr.name, attrNameMap).c_str(), srcAttr.type, srcAttr.count);
 
-        for (Partio::ParticleIndex j = 0; j < numParticles; ++j) {
+        for (Partio::ParticleIndex j = 0; j < nuParticles; ++j) {
             const void *src = other.data<void>(srcAttr, j);
             void *dst = p->dataWrite<void>(dstAttr, j);
             std::memcpy(dst, src, size);
@@ -187,7 +187,7 @@ getAttrs(const ParticlesData& particles)
 void
 print(const ParticlesData* particles)
 {
-    std::cout<<"Particle count "<<particles->numParticles()<<std::endl;
+    std::cout<<"Particle count "<<particles->nuParticles()<<std::endl;
     std::cout<<"Attribute count "<<particles->numAttributes()<<std::endl;
 
     std::vector<ParticleAttribute> attrs = getAttrs(*particles);
@@ -197,7 +197,7 @@ print(const ParticlesData* particles)
                   << " count=" << attr.count << std::endl;
     }
 
-    int numToPrint=std::min(10,particles->numParticles());
+    int numToPrint=std::min(10,particles->nuParticles());
     std::cout<<"num to print "<<numToPrint<<std::endl;
 
     ParticlesData::const_iterator it=particles->begin(),end=particles->end();
@@ -377,7 +377,7 @@ computeClustering(ParticlesDataMutable* particles, const int numNeighbors,const 
     }
     particles->sort();
     ParticleAttribute clusterIdAttr = cluster->addAttribute("clusterId", Partio::INT, 1);
-    for (int index=0; index<particles->numParticles(); index++) {
+    for (int index=0; index<particles->nuParticles(); index++) {
         const float* center=particles->data<float>(posAttr,index);
         Vec3 position(center[0], center[1], center[2]);
         int id = particles->data<int>(idAttr,index)[0];
@@ -455,7 +455,7 @@ void merge(ParticlesDataMutable& base, const ParticlesData& delta, const std::st
     bool baseHasIdentifier = base.attributeInfo(identifier.c_str(), baseIdAttr);
     if (baseHasIdentifier) {
         if (baseIdAttr.type == INT) {
-            for (int i=0; i<base.numParticles(); i++) {
+            for (int i=0; i<base.nuParticles(); i++) {
                 idToParticleIndex[base.data<int>(baseIdAttr,i)[0]] = i;
             }
         } else {
@@ -495,7 +495,7 @@ void merge(ParticlesDataMutable& base, const ParticlesData& delta, const std::st
             attrs.emplace_back(AttributePair<ParticleAttribute>({std::move(baseAttr), std::move(deltaAttr)}));
 
             // Set the attribute to a default value in the base particle set
-            for (int p=0; p<base.numParticles(); ++p) {
+            for (int p=0; p<base.nuParticles(); ++p) {
                 base.set(baseAttr, p, empty);
             }
         }
@@ -555,7 +555,7 @@ void merge(ParticlesDataMutable& base, const ParticlesData& delta, const std::st
 
 
     // Loop through the delta particles and incorporate into the base
-    for (int i=0; i<delta.numParticles(); ++i) {
+    for (int i=0; i<delta.nuParticles(); ++i) {
 
         // Grab index into base particle set - either existing or new
         int index(-1);

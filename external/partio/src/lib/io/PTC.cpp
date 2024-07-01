@@ -242,8 +242,8 @@ bool writePTC(const char* filename,const ParticlesData& p,const bool compressed,
     write<LITEND>(*output,(int)0);
 
     // particle count
-    double numParticlesAsDouble=p.numParticles();
-    write<LITEND>(*output,numParticlesAsDouble);
+    double nuParticlesAsDouble=p.nuParticles();
+    write<LITEND>(*output,nuParticlesAsDouble);
 
     ParticleAttribute positionHandle,normalHandle,radiusHandle;
     bool foundPosition=p.attributeInfo("position",positionHandle);
@@ -259,7 +259,7 @@ bool writePTC(const char* filename,const ParticlesData& p,const bool compressed,
 
     // compute bounding box
     float boxmin[3]={FLT_MAX,FLT_MAX,FLT_MAX},boxmax[3]={-FLT_MAX,-FLT_MAX,-FLT_MAX};
-    for(int i=0;i<p.numParticles();i++){
+    for(int i=0;i<p.nuParticles();i++){
         const float* pos=p.data<float>(positionHandle,i);
         for(int k=0;k<3;k++){
             boxmin[k]=min(pos[k],boxmin[k]);
@@ -317,7 +317,7 @@ bool writePTC(const char* filename,const ParticlesData& p,const bool compressed,
         output->write(specs[i].c_str(),specs[i].length());
     }
 
-    for(int pointIndex=0;pointIndex<p.numParticles();pointIndex++){
+    for(int pointIndex=0;pointIndex<p.nuParticles();pointIndex++){
         // write position
         const float* pos=p.data<float>(positionHandle,pointIndex);
         write<LITEND>(*output,pos[0],pos[1],pos[2]);

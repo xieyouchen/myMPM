@@ -178,7 +178,7 @@ bool writePDBHelper(const char* filename,const ParticlesData& p,const bool compr
     h32.swap=1;
     h32.version=1.0;
     h32.time=0.0;
-    h32.data_size=p.numParticles();
+    h32.data_size=p.nuParticles();
     h32.num_data=p.numAttributes();
     for(int k=0;k<32;k++) h32.padding[k]=0;
     h32.data=0;
@@ -222,7 +222,7 @@ bool writePDBHelper(const char* filename,const ParticlesData& p,const bool compr
         output->write(attr.name.c_str(),attr.name.length()*sizeof(char)+1);
         data_header.type=channel.type;
         data_header.datasize=attr.count*sizeof(float);
-        data_header.blocksize=p.numParticles();
+        data_header.blocksize=p.nuParticles();
         data_header.num_blocks=1;
         data_header.block=0;
         output->write((char*)&data_header,sizeof(data_header));

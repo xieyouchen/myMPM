@@ -231,7 +231,7 @@ bool writeGEO(const char* filename,const ParticlesData& p,const bool compressed,
 {
     unique_ptr<ostream> output(io::write(filename, compressed));
     *output<<"PGEOMETRY V5"<<endl;
-    *output<<"NPoints "<<p.numParticles()<<" NPrims "<<1<<endl;
+    *output<<"NPoints "<<p.nuParticles()<<" NPrims "<<1<<endl;
     *output<<"NPointGroups "<<0<<" NPrimGroups "<<0<<endl;
     *output<<"NPointAttrib "<<p.numAttributes()-1<<" NVertexAttrib "<<0<<" NPrimAttrib 1 NAttrib 0"<<endl;
 
@@ -305,8 +305,8 @@ bool writeGEO(const char* filename,const ParticlesData& p,const bool compressed,
 
     *output<<"PrimitiveAttrib"<<endl;
     *output<<"generator 1 index 1 papi"<<endl;
-    *output<<"Part "<<p.numParticles();
-    for(int i=0;i<p.numParticles();i++)
+    *output<<"Part "<<p.nuParticles();
+    for(int i=0;i<p.nuParticles();i++)
         *output<<" "<<i;
     *output<<" [0]\nbeginExtra"<<endl;
     *output<<"endExtra"<<endl;

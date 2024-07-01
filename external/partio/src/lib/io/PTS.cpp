@@ -274,10 +274,10 @@ bool writePTS(const char* filename,const ParticlesData& p,const bool compressed)
     }
     *output<<endl;
 
-    *output<<"NUMBER_OF_PARTICLES: "<<p.numParticles()<<endl;
+    *output<<"NUMBER_OF_PARTICLES: "<<p.nuParticles()<<endl;
     *output<<"BEGIN DATA"<<endl;
 
-    for(int particleIndex=0;particleIndex<p.numParticles();particleIndex++){
+    for(int particleIndex=0;particleIndex<p.nuParticles();particleIndex++){
         for(unsigned int attrIndex=0;attrIndex<attrs.size();attrIndex++){
             if(attrs[attrIndex].type==Partio::INT || attrs[attrIndex].type==Partio::INDEXEDSTR){
                 const int* data=p.data<int>(attrs[attrIndex],particleIndex);

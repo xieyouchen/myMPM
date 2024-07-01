@@ -70,7 +70,7 @@ release()
 }
 
 int ParticlesSimple::
-numParticles() const
+nuParticles() const
 {
     return particleCount;
 }
@@ -141,7 +141,7 @@ sort()
     const ParticleIndex baseParticleIndex=0;
     const float* data=this->data<float>(attr,baseParticleIndex); // contiguous assumption used here
     KdTree<3>* kdtree_temp=new KdTree<3>();
-    kdtree_temp->setPoints(data,numParticles());
+    kdtree_temp->setPoints(data,nuParticles());
     kdtree_temp->sort();
 
     kdtree_mutex.lock();
@@ -293,15 +293,15 @@ addParticles(const int countToAdd)
 ParticlesDataMutable::iterator ParticlesSimple::
 setupIterator(const int index)
 {
-    if(numParticles()==0) return ParticlesDataMutable::iterator();
-    return ParticlesDataMutable::iterator(this,index,numParticles()-1);
+    if(nuParticles()==0) return ParticlesDataMutable::iterator();
+    return ParticlesDataMutable::iterator(this,index,nuParticles()-1);
 }
 
 ParticlesData::const_iterator ParticlesSimple::
 setupConstIterator(const int index) const
 {
-    if(numParticles()==0) return ParticlesDataMutable::const_iterator();
-    return ParticlesData::const_iterator(this,index,numParticles()-1);
+    if(nuParticles()==0) return ParticlesDataMutable::const_iterator();
+    return ParticlesData::const_iterator(this,index,nuParticles()-1);
 }
 
 void ParticlesSimple::
@@ -335,9 +335,9 @@ void* ParticlesSimple::
 dataInternal(const ParticleAttribute& attribute,const ParticleIndex particleIndex) const
 {
     assert(attribute.attributeIndex>=0 && attribute.attributeIndex<(int)attributes.size());
-    if (particleIndex >= (ParticleIndex)numParticles()) {
+    if (particleIndex >= (ParticleIndex)nuParticles()) {
         std::cerr << "Invalid attempt to set particle value on index "
-                  << particleIndex << " in data with " << numParticles()
+                  << particleIndex << " in data with " << nuParticles()
                   << " particles." << std::endl;
         return nullptr;
     }

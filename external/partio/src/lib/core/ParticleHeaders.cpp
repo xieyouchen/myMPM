@@ -58,7 +58,7 @@ release()
 }
 
 int ParticleHeaders::
-numParticles() const
+nuParticles() const
 {
     return particleCount;
 }

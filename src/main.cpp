@@ -7,9 +7,6 @@ using namespace Eigen;
 
 int main() {
     // y 方向作为竖直方向，初始速度设置
-    Vector3f gravity{0.0f, -9.8f, 0.0f};
-    Vector3f area{1.0f, 1.0f, 1.0f};
-    float grid_interval = 0.02f;
     Vector3f velocity{-2.5f, 0.5f, -0.3f};
     //  选择本构模型，流体2
 
@@ -21,7 +18,7 @@ int main() {
     cout << "材质初始化完成，所选材质属性E：" << water->E << endl;
 
     // 初始化一个模拟器
-    Simulator* simulator = new Simulator(area, grid_interval);
+    Simulator* simulator = new Simulator();
     // 得到物体的初始位置
     vector<Vector3f> positions;
     string model_path = "/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/small_cube.obj";
@@ -34,10 +31,12 @@ int main() {
     // 帧渲染
     int total_frame = 10;
     for(int frame = 0 ; frame < total_frame ; frame++) {
+//        MPM_INFO("Start to Frame Compute");
         if(frame % 50 == 0) {
             // 计算到第 50 帧，粒子流动趋于稳定，再次增加一个物体进行渲染展示
             vector<Vector3f> v =  vector<Vector3f>(positions.size(), velocity);
             simulator->add_object(positions, v, water);
+//            MPM_INFO("Add_Object() SUCCESS");
         }
 
         // 帧率60

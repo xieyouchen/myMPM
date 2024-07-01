@@ -48,7 +48,7 @@ protected:
 
     int numAttributes() const;
     int numFixedAttributes() const;
-    int numParticles() const;
+    int nuParticles() const;
     bool attributeInfo(const char* attributeName,ParticleAttribute& attribute) const;
     bool fixedAttributeInfo(const char* attributeName,FixedAttribute& attribute) const;
     bool attributeInfo(const int attributeInfo,ParticleAttribute& attribute) const;

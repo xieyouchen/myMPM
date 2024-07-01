@@ -55,7 +55,7 @@ typedef struct{
     float elapsedSimulationTime;
     int frameNumber;
     int framePerSecond;
-    int numParticles;
+    int nuParticles;
     float radius;
     float pressure[3];
     float speed[3];
@@ -74,7 +74,7 @@ typedef struct{
     float elapsedSimulationTime;
     int frameNumber;
     int framePerSecond;
-    int numParticles;
+    int nuParticles;
     float radius;
     float pressure[3];
     float speed[3];
@@ -114,7 +114,7 @@ ParticlesDataMutable* readBIN(const char* filename, const bool headersOnly,std::
 
 
     ParticlesDataMutable* simple = headersOnly ? new ParticleHeaders: create();
-    simple->addParticles(header.numParticles);
+    simple->addParticles(header.nuParticles);
 
     ParticleAttribute posAttr;
     posAttr = simple->addAttribute("position",  VECTOR, 3);
@@ -153,7 +153,7 @@ ParticlesDataMutable* readBIN(const char* filename, const bool headersOnly,std::
 
     if (!headersOnly)
     {
-        for(int partIndex = 0; partIndex < simple->numParticles(); partIndex++)
+        for(int partIndex = 0; partIndex < simple->nuParticles(); partIndex++)
         {
 
             float position[3] = {0.0,0.0,0.0};
@@ -291,7 +291,7 @@ bool writeBIN(const char* filename,const ParticlesData& p,const bool /*compresse
     header.version =  11; // version (11 is most current)
     header.frameNumber =  1; // frame number
     header.elapsedSimulationTime = 0.0416666f; //   time elapsed (in seconds)
-    header.numParticles = p.numParticles(); // number of particles
+    header.nuParticles = p.nuParticles(); // number of particles
     header.radius = 0.1f; // radius of emitter
     header.pressure[0] = 1.0; // max, min, and avg pressure
     header.pressure[1] = 1.0;
@@ -321,7 +321,7 @@ bool writeBIN(const char* filename,const ParticlesData& p,const bool /*compresse
     output->write ((const char *) &header.elapsedSimulationTime, sizeof (float));
     output->write ((const char *) &header.frameNumber, sizeof (int));
     output->write ((const char *) &header.framePerSecond, sizeof (int));
-    output->write ((const char *) &header.numParticles, sizeof (int));
+    output->write ((const char *) &header.nuParticles, sizeof (int));
     output->write ((const char *) &header.radius, sizeof (float));
 
     for(int i=0; i <=2; i++)
@@ -338,7 +338,7 @@ bool writeBIN(const char* filename,const ParticlesData& p,const bool /*compresse
     for(int i=0; i <= 2; i++)
         output->write ((const char *) &header.emitterScale[i], sizeof(float));
 
-    for (int particles = 0; particles < p.numParticles(); particles++)
+    for (int particles = 0; particles < p.nuParticles(); particles++)
     {
         // set defaults for stuff that is not exported...
         float position[3] = {0.0,0.0,0.0};

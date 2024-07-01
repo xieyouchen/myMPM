@@ -54,7 +54,7 @@ typedef struct{
     int bitorder;
     int tmp1;
     int tmp2;
-    int numParticles;
+    int nuParticles;
     int numAttrs;
 } PDC_HEADER;
 
@@ -83,11 +83,11 @@ ParticlesDataMutable* readPDC(const char* filename, const bool headersOnly,std::
         return 0;
     }
 
-    BIGEND::swap(header.numParticles);
+    BIGEND::swap(header.nuParticles);
     BIGEND::swap(header.numAttrs);
 
     ParticlesDataMutable* simple = headersOnly ? new ParticleHeaders: create();
-    simple->addParticles(header.numParticles);
+    simple->addParticles(header.nuParticles);
 
     for(int attrIndex = 0; attrIndex < header.numAttrs; attrIndex++){
         // add attribute
@@ -104,12 +104,12 @@ ParticlesDataMutable* readPDC(const char* filename, const bool headersOnly,std::
 
         // if headersOnly, skip
         if(headersOnly){
-            input->seekg((int)input->tellg() + header.numParticles*sizeof(double)*attr.count);
+            input->seekg((int)input->tellg() + header.nuParticles*sizeof(double)*attr.count);
             continue;
         }
         else{
             double tmp[3];
-            for(int partIndex = 0; partIndex < simple->numParticles(); partIndex++){
+            for(int partIndex = 0; partIndex < simple->nuParticles(); partIndex++){
                 for(int dim = 0; dim < attr.count; dim++){
                     read<BIGEND>(*input, tmp[dim]);
                     simple->dataWrite<float>(attr, partIndex)[dim] = (float)tmp[dim];
@@ -134,7 +134,7 @@ bool writePDC(const char* filename,const ParticlesData& p,const bool compressed,
     write<BIGEND>(*output, (int)1); // bitorder
     write<BIGEND>(*output, (int)0); // tmp1
     write<BIGEND>(*output, (int)0); // tmp2
-    write<BIGEND>(*output, (int)p.numParticles());
+    write<BIGEND>(*output, (int)p.nuParticles());
     write<BIGEND>(*output, (int)p.numAttributes());
 
     for(int attrIndex = 0; attrIndex < p.numAttributes(); attrIndex++){
@@ -153,7 +153,7 @@ bool writePDC(const char* filename,const ParticlesData& p,const bool compressed,
         write<BIGEND>(*output, (int)(count+2));
 
         // write data
-        for(int partIndex = 0; partIndex < p.numParticles(); partIndex++){
+        for(int partIndex = 0; partIndex < p.nuParticles(); partIndex++){
             const float* data = p.data<float>(attr, partIndex);
             for(int dim = 0; dim < count; dim++){
                 write<BIGEND>(*output, (double)data[dim]);

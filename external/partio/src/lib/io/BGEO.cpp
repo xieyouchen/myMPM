@@ -310,7 +310,7 @@ bool writeBGEO(const char* filename,const ParticlesData& p,const bool compressed
     int magic=((((('B'<<8)|'g')<<8)|'e')<<8)|'o';
     char versionChar='V';
     int version=5;
-    int nPoints=p.numParticles();
+    int nPoints=p.nuParticles();
     int nPrims=0;
     int nPointGroups=0;
     int nPrimGroups=0;

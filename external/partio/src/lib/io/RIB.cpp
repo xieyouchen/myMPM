@@ -84,7 +84,7 @@ bool writeRIB(const char* filename, const ParticlesData& p, const bool compresse
             case Partio::FLOAT:
             case Partio::VECTOR:
 			{
-                for (int particleIndex = 0; particleIndex < p.numParticles(); ++particleIndex)
+                for (int particleIndex = 0; particleIndex < p.nuParticles(); ++particleIndex)
                 {
                     const float *data = p.data<float>(attr, particleIndex);
                     for (int count = 0; count < attr.count; ++count)
@@ -102,7 +102,7 @@ bool writeRIB(const char* filename, const ParticlesData& p, const bool compresse
 			}
             case Partio::INT:
 			{
-                for (int particleIndex = 0; particleIndex < p.numParticles(); ++particleIndex)
+                for (int particleIndex = 0; particleIndex < p.nuParticles(); ++particleIndex)
                 {
                     const int *data = p.data<int>(attr, particleIndex);
                     for (int count = 0; count < attr.count; ++count)

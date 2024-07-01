@@ -70,7 +70,7 @@ release()
 
 
 int ParticlesSimpleInterleave::
-numParticles() const
+nuParticles() const
 {
     return particleCount;
 }
@@ -141,7 +141,7 @@ sort()
 
     const float* data=this->data<float>(attr,0); // contiguous assumption used here
     KdTree<3>* kdtree_temp=new KdTree<3>();
-    kdtree_temp->setPoints(data,numParticles());
+    kdtree_temp->setPoints(data,nuParticles());
     kdtree_temp->sort();
 
     kdtree_mutex.lock();
@@ -299,15 +299,15 @@ addParticles(const int countToAdd)
 ParticlesDataMutable::iterator ParticlesSimpleInterleave::
 setupIterator(const int index)
 {
-    if(numParticles()==0) return ParticlesDataMutable::iterator();
-    return ParticlesDataMutable::iterator(this,index,numParticles()-1);
+    if(nuParticles()==0) return ParticlesDataMutable::iterator();
+    return ParticlesDataMutable::iterator(this,index,nuParticles()-1);
 }
 
 ParticlesData::const_iterator ParticlesSimpleInterleave::
 setupConstIterator(const int index) const
 {
-    if(numParticles()==0) return ParticlesDataMutable::const_iterator();
-    return ParticlesData::const_iterator(this,index,numParticles()-1);
+    if(nuParticles()==0) return ParticlesDataMutable::const_iterator();
+    return ParticlesData::const_iterator(this,index,nuParticles()-1);
 }
 
 void ParticlesSimpleInterleave::

@@ -63,7 +63,7 @@ typedef struct FileHeadder {
     unsigned int	headersize;
     unsigned char	signature[32];
     unsigned int	version;
-    unsigned long long numParticles;
+    unsigned long long nuParticles;
 } PRT_File_Headder;
 
 typedef struct Channel {
@@ -173,7 +173,7 @@ ParticlesDataMutable* readPRT(const char* filename,const bool headersOnly,std::o
     read<LITEND>(*input,channels);		// number of channel
     read<LITEND>(*input,channelsize);	// size of channel
 
-    simple->addParticles((const int)header.numParticles);
+    simple->addParticles((const int)header.nuParticles);
 
     std::vector<Channel> chans;
     std::vector<ParticleAttribute> attrs;
@@ -243,7 +243,7 @@ ParticlesDataMutable* readPRT(const char* filename,const bool headersOnly,std::o
     
     char* prt_buf = new char[particleSize];
 
-    for (unsigned int particleIndex=0;particleIndex<(unsigned int )simple->numParticles();particleIndex++) {
+    for (unsigned int particleIndex=0;particleIndex<(unsigned int )simple->nuParticles();particleIndex++) {
         // Read the particle from the file, and decompress it into a single particle-sized buffer.
         read_buffer(*input, z, (char*)in_buf, prt_buf, particleSize, errorStream);
         
@@ -342,7 +342,7 @@ ParticlesDataMutable* readPRT(const char* filename,const bool headersOnly,std::o
 bool writePRT(const char* filename,const ParticlesData& p,const bool /*compressed*/,std::ostream* errorStream)
 {
 	/// Krakatoa pukes on 0 particle files for some reason so don't export at all....
-    int numParts = p.numParticles();
+    int numParts = p.nuParticles();
     if (numParts)
     {
         std::unique_ptr<std::ostream> output(
@@ -358,7 +358,7 @@ bool writePRT(const char* filename,const ParticlesData& p,const bool /*compresse
         memcpy(header.signature, signature, sizeof(signature));
         header.headersize = 0x38;
         header.version = 1;
-        header.numParticles = p.numParticles();
+        header.nuParticles = p.nuParticles();
         int reserve = 4;
         output->write((char*)&header,sizeof(FileHeadder));
         write<LITEND>(*output, reserve);
@@ -401,7 +401,7 @@ bool writePRT(const char* filename,const ParticlesData& p,const bool /*compresse
         }
 
         char out_buf[OUT_BUFSIZE+10];
-        for (int particleIndex=0;particleIndex<p.numParticles();particleIndex++) {
+        for (int particleIndex=0;particleIndex<p.nuParticles();particleIndex++) {
             for (unsigned int attrIndex=0;attrIndex<attrs.size();attrIndex++) {
                 if (attrs[attrIndex].type==Partio::INT) {
                     const int* data=p.data<int>(attrs[attrIndex],particleIndex);
@@ -420,7 +420,7 @@ bool writePRT(const char* filename,const ParticlesData& p,const bool /*compresse
             return false;
         }
         // success
-    }// end if numParticles > 0
+    }// end if nuParticles > 0
     return true;
 }
 

@@ -115,7 +115,7 @@ typedef struct {
 typedef struct {
 
     int         numAttributes;
-    int         numParticles;
+    int         nuParticles;
     float       time;
     short      *types;
     char      **names;
@@ -124,7 +124,7 @@ typedef struct {
 typedef struct {
 
     int         numAttributes;
-    int         numParticles;
+    int         nuParticles;
     float       time;
     short      *types;
     char      **names;

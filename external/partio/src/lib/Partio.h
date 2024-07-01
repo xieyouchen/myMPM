@@ -75,7 +75,7 @@ public:
     virtual void release()=0;
 
     //! Number of particles in the structure.
-    virtual int numParticles() const=0;
+    virtual int nuParticles() const=0;
 
     //! Number of per-particle attributes.
     virtual int numAttributes() const=0;
