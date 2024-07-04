@@ -27,13 +27,19 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 10,
+				"line" : 11,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 19,
+				"line" : 21,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 22,
 				"parent" : 0
 			},
 			{
@@ -43,7 +49,7 @@
 				"command" : 1,
 				"file" : 1,
 				"line" : 51,
-				"parent" : 3
+				"parent" : 4
 			},
 			{
 				"command" : 2,
@@ -58,9 +64,15 @@
 				"parent" : 0
 			},
 			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 9,
+				"parent" : 0
+			},
+			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 13,
+				"line" : 14,
 				"parent" : 0
 			}
 		]
@@ -71,24 +83,35 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -isysroot /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.6 -fcolor-diagnostics"
+					"fragment" : "-O3 -DNDEBUG -isysroot /Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -mmacosx-version-min=12.6 -fcolor-diagnostics"
 				},
 				{
 					"fragment" : "-std=gnu++17"
 				}
 			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 3,
+					"define" : "SPDLOG_COMPILED_LIB"
+				}
+			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio/src/lib"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 7,
+					"path" : "/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/spdlog/include"
+				},
+				{
+					"backtrace" : 8,
 					"path" : "/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/include"
 				},
 				{
-					"backtrace" : 7,
+					"backtrace" : 9,
 					"isSystem" : true,
 					"path" : "/usr/local/include/eigen3"
 				}
@@ -115,6 +138,10 @@
 		{
 			"backtrace" : 2,
 			"id" : "partio::@16377c2ddd4d9bf9ea1d"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "spdlog::@e2ce52242414c9d53ee8"
 		}
 	],
 	"id" : "myMPM::@6890427a1f51a3e7e1df",
@@ -123,7 +150,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-g",
+				"fragment" : "-O3 -DNDEBUG",
 				"role" : "flags"
 			},
 			{
@@ -131,7 +158,7 @@
 				"role" : "flags"
 			},
 			{
-				"fragment" : "-Wl,-rpath,/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/partio/src/lib",
+				"fragment" : "-Wl,-rpath,/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-release/external/partio/src/lib",
 				"role" : "libraries"
 			},
 			{
@@ -140,7 +167,12 @@
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 4,
+				"backtrace" : 3,
+				"fragment" : "external/spdlog/libspdlog.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
 				"fragment" : "/Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/usr/lib/libz.tbd",
 				"role" : "libraries"
 			}

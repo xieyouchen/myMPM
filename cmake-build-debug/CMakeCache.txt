@@ -199,6 +199,21 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 //Value Computed by CMake
 CMAKE_PROJECT_NAME:STATIC=myMPM
 
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION:STATIC=1.8.2
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MAJOR:STATIC=1
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MINOR:STATIC=8
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_PATCH:STATIC=2
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_TWEAK:STATIC=
+
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/Applications/Xcode-14.2.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib
 
@@ -301,6 +316,67 @@ PARTIO_USE_GLVND:BOOL=ON
 //Name of the computer/site where compile is being run
 SITE:STRING=xieyouchendeMacBook-Pro.local
 
+//Build all artifacts
+SPDLOG_BUILD_ALL:BOOL=OFF
+
+//Build benchmarks (Requires https://github.com/google/benchmark.git
+// to be installed)
+SPDLOG_BUILD_BENCH:BOOL=OFF
+
+//Build example
+SPDLOG_BUILD_EXAMPLE:BOOL=OFF
+
+//Build header only example
+SPDLOG_BUILD_EXAMPLE_HO:BOOL=OFF
+
+//Build shared library
+SPDLOG_BUILD_SHARED:BOOL=OFF
+
+//Build tests
+SPDLOG_BUILD_TESTS:BOOL=OFF
+
+//Build tests using the header only version
+SPDLOG_BUILD_TESTS_HO:BOOL=OFF
+
+//Enable compiler warnings
+SPDLOG_BUILD_WARNINGS:BOOL=OFF
+
+//Build static or shared library using precompiled header to speed
+// up compilation time
+SPDLOG_ENABLE_PCH:BOOL=OFF
+
+//Use external fmt library instead of bundled
+SPDLOG_FMT_EXTERNAL:BOOL=OFF
+
+//Use external fmt header-only library instead of bundled
+SPDLOG_FMT_EXTERNAL_HO:BOOL=OFF
+
+//Generate the install target
+SPDLOG_INSTALL:BOOL=OFF
+
+//prevent spdlog from using of std::atomic log levels (use only
+// if your code never modifies log levels concurrently
+SPDLOG_NO_ATOMIC_LEVELS:BOOL=OFF
+
+//Compile with -fno-exceptions. Call abort() on any spdlog exceptions
+SPDLOG_NO_EXCEPTIONS:BOOL=OFF
+
+//prevent spdlog from querying the thread id on each log call if
+// thread id is not needed
+SPDLOG_NO_THREAD_ID:BOOL=OFF
+
+//prevent spdlog from using thread local storage
+SPDLOG_NO_TLS:BOOL=OFF
+
+//Prevent from child processes to inherit log file descriptors
+SPDLOG_PREVENT_CHILD_FD:BOOL=OFF
+
+//Enable address sanitizer in tests
+SPDLOG_SANITIZE_ADDRESS:BOOL=OFF
+
+//run clang-tidy
+SPDLOG_TIDY:BOOL=OFF
+
 //Path to a file.
 ZLIB_INCLUDE_DIR:PATH=/Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/usr/include
 
@@ -327,6 +403,15 @@ partio_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
 partio_SOURCE_DIR:STATIC=/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/partio
+
+//Value Computed by CMake
+spdlog_BINARY_DIR:STATIC=/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-debug/external/spdlog
+
+//Value Computed by CMake
+spdlog_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+spdlog_SOURCE_DIR:STATIC=/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/external/spdlog
 
 
 ########################
@@ -403,6 +488,8 @@ CMAKE_GENERATOR_INSTANCE:INTERNAL=
 CMAKE_GENERATOR_PLATFORM:INTERNAL=
 //Name of generator toolset.
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
+//Test CMAKE_HAVE_LIBC_PTHREAD
+CMAKE_HAVE_LIBC_PTHREAD:INTERNAL=1
 //Source directory with the top level CMakeLists.txt file for this
 // project
 CMAKE_HOME_DIRECTORY:INTERNAL=/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM
@@ -455,7 +542,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=4
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -508,6 +595,8 @@ CTEST_SUBMIT_RETRY_COUNT-ADVANCED:INTERNAL=1
 CTEST_SUBMIT_RETRY_DELAY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: DART_TESTING_TIMEOUT
 DART_TESTING_TIMEOUT-ADVANCED:INTERNAL=1
+//Details about finding Threads
+FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //Details about finding ZLIB
 FIND_PACKAGE_MESSAGE_DETAILS_ZLIB:INTERNAL=[/Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/usr/lib/libz.tbd][/Applications/Xcode-14.2.0.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/usr/include][v1.2.11()]
 //ADVANCED property for variable: MAKECOMMAND

@@ -6,12 +6,14 @@
 #include <string>
 #include <fstream>
 #include <vector>
+#include <spdlog/spdlog.h>
 
 #define MPM_ASSERT(condition, statement)                                       \
     if (!(condition)) {                                                        \
       cout << statement << endl;                                               \
       assert(condition);                                                       \
     }                                                                          \
+//#define MPM_ERROR(...) MPMLog::get_logger()->error(__VA_ARGS__)
 
 #define MPM_INFO(statement) \
     cout << "- " statement << endl;
@@ -25,6 +27,9 @@ struct SimulatorConfiguration
     Vector3f area{1.0f, 1.0f, 1.0f};
     int W, H, L, grid_size;
     float grid_interval = 0.02f;
+    float dt = 1e-4f;
+    unsigned int current_step = 0; //帧计算时计算当前是第几步(共167步)
+    int thickness = 2; // 边界处理参数值
 };
 
 struct Grid
@@ -60,6 +65,10 @@ struct Particle
     Matrix3f piola;
 
     Particle() {
+        cal_stress_tensor();
+    }
+
+    Matrix3f cal_stress_tensor() {
         auto m = water;
         auto J = F.determinant(); // 行列式
         piola = m->mu * (F - F.transpose().inverse()) +

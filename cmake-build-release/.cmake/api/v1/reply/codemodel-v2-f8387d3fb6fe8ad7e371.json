@@ -1,0 +1,412 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						3
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Release-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.24"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						28
+					]
+				},
+				{
+					"build" : "external/partio",
+					"childIndexes" : 
+					[
+						2
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-external.partio-Release-ab1fefe34e77790ee1e1.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "external/partio",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27
+					]
+				},
+				{
+					"build" : "external/partio/src/lib",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-external.partio.src.lib-Release-14dd2bc2548bebc5ec71.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15.0"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "external/partio/src/lib",
+					"targetIndexes" : 
+					[
+						29
+					]
+				},
+				{
+					"build" : "external/spdlog",
+					"jsonFile" : "directory-external.spdlog-Release-35f4a856ea892a098f37.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "external/spdlog",
+					"targetIndexes" : 
+					[
+						30
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "myMPM",
+					"targetIndexes" : 
+					[
+						28
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1,
+						2
+					],
+					"name" : "partio",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						29
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "spdlog",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						30
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "Continuous::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-Continuous-Release-1d135d9a39f126f05625.json",
+					"name" : "Continuous",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ContinuousBuild::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-ContinuousBuild-Release-40a95285595dcfe7c79c.json",
+					"name" : "ContinuousBuild",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ContinuousConfigure::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-ContinuousConfigure-Release-2a9eefbed260bc04d880.json",
+					"name" : "ContinuousConfigure",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ContinuousCoverage::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-ContinuousCoverage-Release-e9f6cdf03a0faf4cbaab.json",
+					"name" : "ContinuousCoverage",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ContinuousMemCheck::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-ContinuousMemCheck-Release-a8bd6bc86ab35c5d4a7b.json",
+					"name" : "ContinuousMemCheck",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ContinuousStart::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-ContinuousStart-Release-efce7dcafec23e1a5d9a.json",
+					"name" : "ContinuousStart",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ContinuousSubmit::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-ContinuousSubmit-Release-012d09f8ab3cff8d3a36.json",
+					"name" : "ContinuousSubmit",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ContinuousTest::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-ContinuousTest-Release-0f8cdf2ceae4ba61ea9e.json",
+					"name" : "ContinuousTest",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ContinuousUpdate::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-ContinuousUpdate-Release-119629c795d21dc2db18.json",
+					"name" : "ContinuousUpdate",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "Experimental::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-Experimental-Release-586bad50bcf2ba2be2fa.json",
+					"name" : "Experimental",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ExperimentalBuild::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-ExperimentalBuild-Release-c9f951b1b45bd2e59c55.json",
+					"name" : "ExperimentalBuild",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ExperimentalConfigure::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-ExperimentalConfigure-Release-ec546166c7796170caf8.json",
+					"name" : "ExperimentalConfigure",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ExperimentalCoverage::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-ExperimentalCoverage-Release-7ce0cdc302f359d405f6.json",
+					"name" : "ExperimentalCoverage",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ExperimentalMemCheck::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-ExperimentalMemCheck-Release-6c36d4a6faa4a363ab2d.json",
+					"name" : "ExperimentalMemCheck",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ExperimentalStart::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-ExperimentalStart-Release-20dc5e63d9fabc7f0ef4.json",
+					"name" : "ExperimentalStart",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ExperimentalSubmit::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-ExperimentalSubmit-Release-3f07cf23d825d11cdb28.json",
+					"name" : "ExperimentalSubmit",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ExperimentalTest::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-ExperimentalTest-Release-ddeaa8f6dc02c5c09fca.json",
+					"name" : "ExperimentalTest",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ExperimentalUpdate::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-ExperimentalUpdate-Release-25a821b616efa4212fa8.json",
+					"name" : "ExperimentalUpdate",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "Nightly::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-Nightly-Release-8f5e9bc21a1cc8dffa8e.json",
+					"name" : "Nightly",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "NightlyBuild::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-NightlyBuild-Release-3646825d63cde800cfae.json",
+					"name" : "NightlyBuild",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "NightlyConfigure::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-NightlyConfigure-Release-d5e4a835d997d1fa98b4.json",
+					"name" : "NightlyConfigure",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "NightlyCoverage::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-NightlyCoverage-Release-8937cec82c0126048a82.json",
+					"name" : "NightlyCoverage",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "NightlyMemCheck::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-NightlyMemCheck-Release-97ecdf327b0671d9c585.json",
+					"name" : "NightlyMemCheck",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "NightlyMemoryCheck::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-NightlyMemoryCheck-Release-eff88c9589090ff2780f.json",
+					"name" : "NightlyMemoryCheck",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "NightlyStart::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-NightlyStart-Release-e4a883ad123bf39e070d.json",
+					"name" : "NightlyStart",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "NightlySubmit::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-NightlySubmit-Release-d162606b21b5996812ec.json",
+					"name" : "NightlySubmit",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "NightlyTest::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-NightlyTest-Release-b5a6da8cab6ee1078c7f.json",
+					"name" : "NightlyTest",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "NightlyUpdate::@e9543c1fefe3cd5c6ae7",
+					"jsonFile" : "target-NightlyUpdate-Release-9aeb7e33ec3012a6f1f0.json",
+					"name" : "NightlyUpdate",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "myMPM::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-myMPM-Release-85b2b6bd011476362160.json",
+					"name" : "myMPM",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "partio::@16377c2ddd4d9bf9ea1d",
+					"jsonFile" : "target-partio-Release-346350cf10929ecafc67.json",
+					"name" : "partio",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "spdlog::@e2ce52242414c9d53ee8",
+					"jsonFile" : "target-spdlog-Release-c626a21fb0da339fcb5d.json",
+					"name" : "spdlog",
+					"projectIndex" : 2
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM/cmake-build-release",
+		"source" : "/Users/xieyouchen/usually/Projects/LiuLong/Project/myMPM"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

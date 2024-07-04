@@ -5,6 +5,7 @@
 #include "Simulator.h"
 #include "defines.h"
 #include <Eigen/Core>
+#include "math.h"
 
 using namespace std;
 using namespace Eigen;
@@ -91,6 +92,7 @@ void Simulator::add_object(const vector<Vector3f> &pos, const vector<Vector3f> v
 }
 
 void Simulator::transfer_P2G() {
+    auto pos = positions;
     for(int iter = 0 ; iter < this->particles_size ; iter++) {
         // 得到3×3网格的左下角网格下标
         auto [base_node, wp, dwp] =
@@ -108,7 +110,7 @@ void Simulator::transfer_P2G() {
                                 node(1) * simulator_configuration.L +
                                 node(2);
 
-                    MPM_ASSERT(index >= 0 && index < simulator_configuration.grid_size,
+                    MPM_ASSERT(0 <= index && index < simulator_configuration.grid_size,
                                "PARTICLE OUT OF GRID at Transfer_P2G");
 
                     // 权重系数累积汇总
@@ -127,6 +129,10 @@ void Simulator::transfer_P2G() {
         }
         else grid[i].velocity = Vector3f::Zero();
     }
+
+//    printf("size: %d ---> %d %f\n", active_nodes.size(), grid[active_nodes[0]].mass > 1e-6, grid[active_nodes[0]].mass);
+//    for(int i = 0 ; i < active_nodes.size() ; i++) printf("%d ", active_nodes[i]);
+
 }
 
 void Simulator::add_gravity() {
@@ -142,16 +148,16 @@ void Simulator::update_grid_force() {
         // 变形梯度 F 开始计算
         auto F = particles[iter].F;
         auto volume = particles[iter].water->volume;
-        auto interval = simulator_configuration.grid_interval;
 
         // 多线程中可能会出现问题，计算 piola 的时候
+        particles[iter].cal_stress_tensor();
         Matrix3f piola = particles[iter].piola;
         auto [base_node, wp, dwp] = quadratic_interpolation(positions[iter]);
 
         for(int i = 0 ; i < 3 ; i++) {
             for(int j = 0 ; j < 3 ; j++) {
                 for(int k = 0 ; k < 3 ; k++) {
-                    auto node = base_node + Vector3i(i, j, k);
+                    Vector3i node = base_node + Vector3i(i, j, k);
                     // 梯度权重系数
                     auto h = simulator_configuration.grid_interval;
                     Vector3f grad_wip{dwp(i, 0) * wp(j, 1) * wp(k, 2) / h,
@@ -167,15 +173,147 @@ void Simulator::update_grid_force() {
                                "PARTICLE OUT OF GRID");
 
                     grid[index].force -= volume * (piola * F.transpose()) * grad_wip;
-                    cout << index << ": " << grid[index].force.transpose() << endl;
+//                    std::cout << "index: " << index << " --> " <<  grid[index].force.transpose() << std::endl;
+//                    IOFormat CleanFmt(4, 0, ", ", "\n", "[", "]");
+//                    std::cout << "piola:" << piola.format(CleanFmt) << std::endl;
                 }
             }
         }
     }
 }
 
-void Simulator::substeps(float dt) {
+void Simulator::update_grid_velocity() {
+    // 只需要处理有效节点
+    for(int iter = 0 ; iter < active_nodes.size() ; iter++) {
+        int idx = active_nodes[iter];
+
+//        cout << "idx: " << idx << "---> v:" << grid[idx].velocity(0) << endl;
+//        assert(isnormal(grid[idx].velocity(0)) == 1);
+        grid[idx].velocity += simulator_configuration.dt * grid[idx].force / grid[idx].mass;
+//        cout << "idx: " << idx << "---> v:" << grid[idx].velocity.transpose() << "   --> mass:" << grid[idx].mass
+//        << "  ---> f:" << grid[idx].force.transpose() << endl;
+    }
+}
+
+void Simulator::solve_grid_boundary() {
+  // MPM_PROFILE_FUNCTION();
+  // Sticky boundary
+  int thickness = simulator_configuration.thickness;
+  auto [W, H, L] = std::tie(simulator_configuration.W, simulator_configuration.H, simulator_configuration.L);
+  // check x-axis bound
+  for (int i = 0; i < thickness; i++) {
+    for (int j = 0; j < H; j++) {
+      for (int k = 0; k < L; k++) {
+        int index1 = i * H * L + j * L + k;
+        int index2 = (W - i - 1) * H * L + j * L + k;
+        if (grid[index1].velocity[0] < 0) {
+          grid[index1].velocity[0] = 0.0f;
+        }
+        if (grid[index2].velocity[0] > 0) {
+          grid[index2].velocity[0] = 0.0f;
+        }
+      }
+    }
+  }
+  // check y-axis bound
+  for (int i = 0; i < W; i++) {
+    for (int j = 0; j < thickness; j++) {
+      for (int k = 0; k < L; k++) {
+        int index1 = i * H * L + j * L + k;
+        int index2 = i * H * L + (H - j - 1) * L + k;
+        if (grid[index1].velocity[1] < 0) {
+          grid[index1].velocity[1] = 0.0f;
+        }
+        if (grid[index2].velocity[1] > 0) {
+          grid[index2].velocity[1] = 0.0f;
+        }
+      }
+    }
+  }
+  // check z-axis bound
+  for (int i = 0; i < W; i++) {
+    for (int j = 0; j < H; j++) {
+      for (int k = 0; k < thickness; k++) {
+        int index1 = i * H * L + j * L + k;
+        int index2 = i * H * L + j * L + (L - k - 1);
+        if (grid[index1].velocity[2] < 0) {
+          grid[index1].velocity[2] = 0.0f;
+        }
+        if (grid[index2].velocity[2] > 0) {
+          grid[index2].velocity[2] = 0.0f;
+        }
+      }
+    }
+  }
+}
+
+void Simulator::update_F() {
+    for(int iter = 0 ; iter < particles_size ; iter++) {
+        auto F = particles[iter].F;
+        auto [base_node, wp, dwp] =
+                quadratic_interpolation(positions[iter]);
+
+        // weight 就是仿射速度场，用于计算形变梯度 F 最关键的一个指标 Cp
+        Matrix3f weight = Matrix3f::Zero();
+        for(int i = 0 ; i < 3 ; i++) {
+            for(int j = 0 ; j < 3 ; j++) {
+                for(int k = 0 ; k < 3 ; k++) {
+                    Vector3i node = base_node + Vector3i(i, j, k);
+                    auto h = simulator_configuration.grid_interval;
+                    Vector3f grad_wip{dwp(i, 0) * wp(j, 1) * wp(k, 2) / h,
+                                      wp(i, 0) * dwp(j, 1) * wp(k, 2) / h,
+                                      wp(i, 0) * wp(j, 1) * dwp(k, 2) / h};
+                }
+            }
+        }
+        particles[iter].F += simulator_configuration.dt * weight * F;
+        if (particles[iter].F.determinant() < 0) {
+            spdlog::error("particles[{}]'s determinat(F) is negative!\n{}", iter);
+            assert(false);
+        }
+    }
+}
+
+void Simulator::transfer_G2P() {
+    for(int iter = 0 ; iter < particles_size ; iter++) {
+        auto [base_node, wp, dwp] = quadratic_interpolation(positions[iter]);
+
+        Vector3f velocity_PIC = Vector3f::Zero();
+        for(int i = 0 ; i < 3 ; i++) {
+            for(int j = 0 ; j < 3 ; j++) {
+                for(int k = 0 ; k < 3 ; k++) {
+                  Vector3i node = base_node + Vector3i(i, j, k);
+                  auto wijk = wp(i,0) * wp(j,1) * wp(k,2);
+                  auto index = node(0) * simulator_configuration.H * simulator_configuration.L +
+                          node(1) * simulator_configuration.L + node(2);
+                  MPM_ASSERT(0 <= index && index < simulator_configuration.grid_size, "PARTICLE OUT OF GRID");
+
+                  velocity_PIC += wijk * grid[index].velocity; // APIC 就是最简单的系数 * 速度
+                }
+            }
+        }
+        switch(transfer_scheme) {
+          case TransferScheme::APIC:
+            particles[iter].velocity = velocity_PIC;
+            break;
+        }
+    }
+}
+
+void Simulator::advection() {
+  for(int iter = 0 ; iter < particles_size ; iter++) {
+    positions[iter] += simulator_configuration.dt * particles[iter].velocity;
+  }
+}
+
+void Simulator::substeps() {
     transfer_P2G();
     add_gravity();
     update_grid_force();
+    update_grid_velocity();
+    // 处理网格的边界问题，后面再写，看看就这样出来的效果
+    update_F(); // 更新形变梯度
+    transfer_G2P();
+    advection(); //平流，就是更新粒子的位置
+    simulator_configuration.current_step++;
 }

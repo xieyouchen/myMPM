@@ -5,6 +5,7 @@
 using namespace std;
 using namespace Eigen;
 
+
 int main() {
     // y 方向作为竖直方向，初始速度设置
     Vector3f velocity{-2.5f, 0.5f, -0.3f};
@@ -31,24 +32,26 @@ int main() {
     // 帧渲染
     int total_frame = 10;
     for(int frame = 0 ; frame < total_frame ; frame++) {
+      simulator->simulator_configuration.current_step = 0;
 //        MPM_INFO("Start to Frame Compute");
-        if(frame % 50 == 0) {
-            // 计算到第 50 帧，粒子流动趋于稳定，再次增加一个物体进行渲染展示
-            vector<Vector3f> v =  vector<Vector3f>(positions.size(), velocity);
-            simulator->add_object(positions, v, water);
+      if(frame % 50 == 0) {
+          // 计算到第 50 帧，粒子流动趋于稳定，再次增加一个物体进行渲染展示
+          vector<Vector3f> v =  vector<Vector3f>(positions.size(), velocity);
+          simulator->add_object(positions, v, water);
 //            MPM_INFO("Add_Object() SUCCESS");
-        }
+      }
 
-        // 帧率60
-        int frame_rate = 60;
-        float dt = 1e-4f;
-        int steps_per_frame = (int)ceil(1.0f / frame_rate / dt);
-        for(int i = 0 ; i < steps_per_frame ; i++) {
-            simulator->substeps(dt);
-        }
+      // 帧率60
+      int frame_rate = 60;
+      float dt = 1e-4f;
+      int steps_per_frame = (int)ceil(1.0f / frame_rate / dt);
+      for(int i = 0 ; i < steps_per_frame ; i++) {
+          // 一帧要计算 160 次的，每一帧就是一个 bgeo 文件
+          simulator->substeps();
+      }
 
-        string output = output_dir + to_string(frame+1) + ".bgeo";
-        write_particles_position(output, positions);
+      string output = output_dir + to_string(frame+1) + ".bgeo";
+      write_particles_position(output, positions);
     }
 
     return 0;

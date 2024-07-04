@@ -7,6 +7,7 @@
 class Simulator
 {
 public:
+    enum TransferScheme { FLIP99, FLIP95, APIC };
     SimulatorConfiguration simulator_configuration;
     Grid *grid;
     Particle *particles = nullptr;
@@ -15,6 +16,7 @@ public:
 
     std::vector<Vector3f> positions;
     vector<Vector3f> velocity;
+    TransferScheme transfer_scheme = TransferScheme::APIC;
 
     Simulator();
     Simulator(Vector3f area, float h);
@@ -29,6 +31,12 @@ public:
     void transfer_P2G();
     void add_gravity();
     void update_grid_force();
+    void solve_grid_boundary();
+    void update_grid_velocity();
+    void update_F();
+    void transfer_G2P();
+    void advection();
 
-    void substeps(float dt);
+
+    void substeps();
 };

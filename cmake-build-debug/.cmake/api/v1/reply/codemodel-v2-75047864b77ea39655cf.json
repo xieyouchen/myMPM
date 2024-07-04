@@ -8,7 +8,8 @@
 					"build" : ".",
 					"childIndexes" : 
 					[
-						1
+						1,
+						3
 					],
 					"hasInstallRule" : true,
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
@@ -85,6 +86,21 @@
 					[
 						29
 					]
+				},
+				{
+					"build" : "external/spdlog",
+					"jsonFile" : "directory-external.spdlog-Debug-35f4a856ea892a098f37.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "external/spdlog",
+					"targetIndexes" : 
+					[
+						30
+					]
 				}
 			],
 			"name" : "Debug",
@@ -93,7 +109,8 @@
 				{
 					"childIndexes" : 
 					[
-						1
+						1,
+						2
 					],
 					"directoryIndexes" : 
 					[
@@ -144,6 +161,18 @@
 						26,
 						27,
 						29
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "spdlog",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						30
 					]
 				}
 			],
@@ -348,16 +377,23 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "myMPM::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-myMPM-Debug-e93431f2070027d369ab.json",
+					"jsonFile" : "target-myMPM-Debug-45d85886d78f52791c1e.json",
 					"name" : "myMPM",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 2,
 					"id" : "partio::@16377c2ddd4d9bf9ea1d",
-					"jsonFile" : "target-partio-Debug-701f9bf9e8f08f33a07e.json",
+					"jsonFile" : "target-partio-Debug-70e9c41d9a7f15366b0d.json",
 					"name" : "partio",
 					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "spdlog::@e2ce52242414c9d53ee8",
+					"jsonFile" : "target-spdlog-Debug-6cf4172873b9954df91c.json",
+					"name" : "spdlog",
+					"projectIndex" : 2
 				}
 			]
 		}

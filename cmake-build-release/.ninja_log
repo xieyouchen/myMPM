@@ -1,0 +1,24 @@
+# ninja log v5
+5	4522	1719911725515486252	external/partio/src/lib/CMakeFiles/partio.dir/io/BIN.cpp.o	b5a736a50f627e8c
+8184	10616	1719911731616814817	external/partio/src/lib/CMakeFiles/partio.dir/io/PTS.cpp.o	8adcb8a3de8784cc
+13704	13789	1719911734798387633	external/partio/src/lib/libpartio.dylib	c7cea10eb70422c6
+3	6277	1719911727268564250	external/partio/src/lib/CMakeFiles/partio.dir/io/BGEO.cpp.o	c8b0e266c4ce5a61
+0	6977	1719911727972402186	CMakeFiles/myMPM.dir/src/main.cpp.o	1c4a0fcccc34af3c
+6979	9066	1719911730065657083	external/partio/src/lib/CMakeFiles/partio.dir/io/PDC.cpp.o	b64f5b3b0f1735ea
+4526	7501	1719911728501272702	external/partio/src/lib/CMakeFiles/partio.dir/io/MC.cpp.o	7edd2b8d88dbc388
+5163	8184	1719911729181379613	external/partio/src/lib/CMakeFiles/partio.dir/io/PDA.cpp.o	7f7e919c43937431
+7501	10336	1719911731336206583	external/partio/src/lib/CMakeFiles/partio.dir/io/PTC.cpp.o	289940c526b11f61
+2	7007	1719911728004869337	CMakeFiles/myMPM.dir/src/utils.cpp.o	d45e3f6596d1f7bf
+6	5162	1719911726164217740	external/partio/src/lib/CMakeFiles/partio.dir/io/GEO.cpp.o	724f11da599c1f64
+6277	8712	1719911729708707737	external/partio/src/lib/CMakeFiles/partio.dir/io/PDB.cpp.o	bece8de7683ff971
+9	4514	1719912282557545561	CMakeFiles/myMPM.dir/src/Simulator.cpp.o	7fc61f4af1f8b3d5
+8713	10846	1719911731844608450	external/partio/src/lib/CMakeFiles/partio.dir/io/ParticleIO.cpp.o	8a64d549cdeeccc8
+9067	11565	1719911732560448687	external/partio/src/lib/CMakeFiles/partio.dir/io/ZIP.cpp.o	58bcd7a7a97956f0
+10846	12831	1719911733836735228	external/partio/src/lib/CMakeFiles/partio.dir/core/ParticleSimpleInterleave.cpp.o	e4f9dfcdccdf8fa7
+10616	12202	1719911733208382752	external/partio/src/lib/CMakeFiles/partio.dir/core/ParticleHeaders.cpp.o	6ad7948cca1a4a3
+10337	11891	1719911732893690907	external/partio/src/lib/CMakeFiles/partio.dir/io/RIB.cpp.o	26a965830e9a8534
+10340	13390	1719911734394828791	external/partio/src/lib/CMakeFiles/partio.dir/core/Particle.cpp.o	30280148525b17
+7008	10340	1719911731335062383	external/partio/src/lib/CMakeFiles/partio.dir/io/PRT.cpp.o	eef5dd4c209e0b33
+10406	11939	1719911732944487539	external/partio/src/lib/CMakeFiles/partio.dir/core/ParticleCaching.cpp.o	4ecc298d0fb2a592
+11565	13704	1719911734709092820	external/partio/src/lib/CMakeFiles/partio.dir/core/ParticleSimple.cpp.o	6c163ea912d460a9
+4515	4585	1719912282635562108	myMPM	e051414f130830c9
